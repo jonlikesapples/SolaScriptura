@@ -1,4 +1,4 @@
-Application created as a side project during Summer 2018 to practice Front-End ReactJS. 
+Application created by Jon Wong as a side project during Summer 2018 to practice Front-End ReactJS. 
 Created using the create-react-app bootstrap.
 
 APIs used:
