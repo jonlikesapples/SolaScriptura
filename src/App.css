@@ -1,0 +1,56 @@
+.App {
+  color: white;
+  margin: 0;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Gotham';
+}
+
+.App a {
+  text-decoration: none;
+  color: white;
+}
+
+.App a:hover {
+  color: black;
+}
+
+.verseText {
+/*  background-color: black;
+  opacity: 0.5;*/
+  /*border: 4px solid white;*/
+  text-shadow: 1px 1px 20px #000;
+  position: absolute;
+  font-family: 'Gotham';
+  /*font-weight: bold;*/
+  text-align: center;
+  left: 25%;
+  right: 25%;
+  top: 42%;
+  font-size: 18px;
+}
+
+.liability {
+  /*border: 4px solid lightblue;*/
+  position: absolute;
+  left: 7px;
+  bottom: 7px;
+  right: 84%;
+  font-size: 11px;
+}
+
+.location {
+  position: absolute;
+  right: 7px;
+  bottom: 7px;
+  font-size: 11px;
+}
+
+.verseReference {
+  font-size: 12px;
+}
+

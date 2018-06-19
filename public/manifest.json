@@ -1,0 +1,26 @@
+{
+  "manifest_version" : 2,
+
+  "name": "Sola Scriptura",
+  "background" : {
+  },
+
+  "browser_action": {
+
+  }, 
+
+  "description": "by scripture alone",
+  "chrome_url_overrides" : {
+    "newtab": "index.html"
+  },
+    
+  "version" : "1.0",
+    
+    "permissions": [
+    "http://www.ourmanna.com/",
+    "https://www.ourmanna.com/",
+    "http://beta.ourmanna.com/", 
+    "https://beta.ourmanna.com/",
+    "notifications", "tabs", "background", "topSites"]
+
+}
