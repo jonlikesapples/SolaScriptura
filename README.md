@@ -1,5 +1,7 @@
 **Application created by Jon Wong as a side project during Summer 2018 to practice Front-End ReactJS. <br/>
-Created using the create-react-app bootstrap.**
+Created using the create-react-app bootstrap.** <br/>
+
+https://chrome.google.com/webstore/detail/sola-scriptura/iihcfflojlfbjegffnlndocgdfcemjfk?hl=en-US
 
 APIs used: <br/>OurManna for the verses http://www.ourmanna.com/verses/api/ <br/> Unsplash for the the pictures https://unsplash.com/developers
 
