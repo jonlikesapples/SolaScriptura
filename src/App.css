@@ -7,7 +7,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  font-family: 'Gotham';
+  /*font-family: 'Gotham';*/
 }
 
 .App a {
@@ -16,22 +16,22 @@
 }
 
 .App a:hover {
-  color: black;
+  color: lightblue;
 }
 
 .verseText {
 /*  background-color: black;
   opacity: 0.5;*/
   /*border: 4px solid white;*/
-  text-shadow: 1px 1px 20px #000;
+  text-shadow: 1px 1px 10px #000;
   position: absolute;
-  font-family: 'Gotham';
+  font-family: futura, book;
   /*font-weight: bold;*/
+  font-size: 32px;
   text-align: center;
   left: 25%;
   right: 25%;
-  top: 42%;
-  font-size: 18px;
+  top: 35%;
 }
 
 .liability {
@@ -51,6 +51,9 @@
 }
 
 .verseReference {
-  font-size: 12px;
+  margin: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 

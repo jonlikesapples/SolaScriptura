@@ -10,9 +10,11 @@ import './App.css';
 class App extends Component {
 
   componentDidMount() { //functions to call when page loads
+  	console.log("why are you here")
+  	console.log("you're not supposed to open the console")
     document.title = "Sola Scriptura"
-    console.log("mounted");
-    console.log("very beginning: pictureURL is: " + this.state.pictureURL);
+    //console.log("mounted");
+    //console.log("very beginning: pictureURL is: " + this.state.pictureURL);
     this.getPicture();
     //this.testGetPic();
     this.getVerse();
@@ -35,7 +37,7 @@ class App extends Component {
 
 
   getVerse() { //'==>' handles the "this" binding
-    console.log("getVerse")
+    //console.log("getVerse")
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "https://cors-anywhere.herokuapp.com/https://beta.ourmanna.com/api/v1/get/?format=json&order=random");
     xhr.onload = function(e) {
@@ -44,8 +46,8 @@ class App extends Component {
              var verseJSON = JSON.parse(xhr.responseText);
              var verseText = verseJSON.verse.details.text;
              var verseReference = verseJSON.verse.details.reference;
-             console.log(verseText);
-             console.log(JSON.parse(xhr.responseText));
+             //console.log(verseText);
+             //console.log(JSON.parse(xhr.responseText));
              this.setState({verseText: verseText});
              this.setState({verseReference: verseReference});   //successfully works
             }
@@ -57,7 +59,7 @@ class App extends Component {
 
   testGetPic() {
     //used only for testing
-    console.log("inside testgetpic");
+    //console.log("inside testgetpic");
     var pictureURL = 'https://images.unsplash.com/photo-1458898257815-0ec6bfaa0ade?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjI2MDg3fQ&s=872c0921c76b07a890e53c3998827899';
     this.setState({location: 'testLocation'});
     this.setState({coordinates: 'https://www.google.com/maps?q=-37.866963,144.980615'});
@@ -69,20 +71,20 @@ class App extends Component {
   }
 
   getPicture() {
-    console.log("getPicture");
+    //console.log("getPicture");
     var xhr = new XMLHttpRequest();
     //gets a landscape, city picture
     xhr.open("GET", "https://api.unsplash.com/photos/random/?query=city&orientation=landscape&client_id=e998c0c7516d98d9f0ce345585b13dc874fce7d4f1d29f16afff8a5cb605af9a");
     xhr.onload = function(e) {
          if ((xhr.readyState === 4) && (xhr.status === 200)){
             var pictureJSON= JSON.parse(xhr.responseText)
-            console.log(pictureJSON)
+            //console.log(pictureJSON)
             var pictureURL = pictureJSON.urls.regular;
             //pictureURL = "https://images.unsplash.com/photo-1458898257815-0ec6bfaa0ade?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjI2MDg3fQ&s=872c0921c76b07a890e53c3998827899"
             this.setState({pictureURL: pictureURL}, function() {
               document.getElementById("everything").style.backgroundImage = "url(" + this.state.pictureURL +  ")";
             });
-            console.log("just set the pictureURL state: " + this.state.pictureURL);
+            console.log("here's the link to the picture if you're interested " + this.state.pictureURL);
 
             var authorName = pictureJSON.user.name;
             this.setState({authorCredit: authorName});
@@ -100,10 +102,11 @@ class App extends Component {
               var latitude = picLocation.position.latitude;
               var longitude = picLocation.position.longitude;
               this.setState({coordinates: googleMapsEndpoint + latitude + "," + longitude});
-              console.log(this.state.location);
-              console.log(this.state.coordinates);
+              //console.log(this.state.location);
+              //console.log(this.state.coordinates);
             }
-            else {console.log("NO LOCATION!")}
+            else { //console.log("NO LOCATION!")
+        		}
           }
           else { console.log("nope. nothing was sent.") }
       }.bind(this);

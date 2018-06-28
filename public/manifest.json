@@ -14,13 +14,12 @@
     "newtab": "index.html"
   },
     
-  "version" : "1.0",
+  "version" : "1.3",
     
     "permissions": [
     "http://www.ourmanna.com/",
     "https://www.ourmanna.com/",
     "http://beta.ourmanna.com/", 
-    "https://beta.ourmanna.com/",
-    "notifications", "tabs", "background", "topSites"]
+    "https://beta.ourmanna.com/"]
 
 }
