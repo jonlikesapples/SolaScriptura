@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
+import {unregister} from './registerServiceWorker';
+unregister();
+
 
 // document.addEventListener('DOMContentLoaded', function(event) {
 //   console.log("DOMContentLoaded");
@@ -37,21 +40,21 @@ class App extends Component {
 
 
   getVerse() { //'==>' handles the "this" binding
-    //console.log("getVerse")
+    console.log("getVerse")
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "https://cors-anywhere.herokuapp.com/https://beta.ourmanna.com/api/v1/get/?format=json&order=random");
     xhr.onload = function(e) {
-          if ((xhr.readyState === 4) && (xhr.status === 200)) 
+          if ((xhr.readyState === 4) && (xhr.status === 200))
             {
              var verseJSON = JSON.parse(xhr.responseText);
              var verseText = verseJSON.verse.details.text;
              var verseReference = verseJSON.verse.details.reference;
              //console.log(verseText);
-             //console.log(JSON.parse(xhr.responseText));
+             console.log(JSON.parse(xhr.responseText));
              this.setState({verseText: verseText});
              this.setState({verseReference: verseReference});   //successfully works
             }
-        else 
+        else
           { console.log("nope. nothing was sent.") }
       }.bind(this);
       xhr.send();
@@ -74,13 +77,15 @@ class App extends Component {
     //console.log("getPicture");
     var xhr = new XMLHttpRequest();
     //gets a landscape, city picture
-    xhr.open("GET", "https://api.unsplash.com/photos/random/?query=city&orientation=landscape&client_id=e998c0c7516d98d9f0ce345585b13dc874fce7d4f1d29f16afff8a5cb605af9a");
+    var potentialQuery = ["minimal","wall","background","texture"]
+    var querySearch = potentialQuery[Math.floor(Math.random() * potentialQuery.length)];
+    var API = `https://api.unsplash.com/photos/random/?query=${querySearch}&orientation=landscape&client_id=e998c0c7516d98d9f0ce345585b13dc874fce7d4f1d29f16afff8a5cb605af9a`;
+    xhr.open("GET", API);
     xhr.onload = function(e) {
          if ((xhr.readyState === 4) && (xhr.status === 200)){
             var pictureJSON= JSON.parse(xhr.responseText)
             //console.log(pictureJSON)
             var pictureURL = pictureJSON.urls.regular;
-            //pictureURL = "https://images.unsplash.com/photo-1458898257815-0ec6bfaa0ade?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjI2MDg3fQ&s=872c0921c76b07a890e53c3998827899"
             this.setState({pictureURL: pictureURL}, function() {
               document.getElementById("everything").style.backgroundImage = "url(" + this.state.pictureURL +  ")";
             });
@@ -118,8 +123,8 @@ class App extends Component {
       <div className="App" id="everything">
           <div id = "timeSlot"> </div>
           <div id = "verse">
-            <div className="verseText"> 
-              { this.state.verseText } <br/> 
+            <div className="verseText">
+              { this.state.verseText } <br/>
               <div className = "verseReference"> {this.state.verseReference} </div>
             </div>
           </div>
@@ -135,7 +140,7 @@ class App extends Component {
           <div className = "location" id="location">
            <a href = {this.state.coordinates}> {this.state.location} </a>
           </div>
-            <div id="picture"> 
+            <div id="picture">
               <div>  </div>
               {/* BACKGROUND IMAGE<img src = {this.state.pictureURL} /> */}
             </div>
