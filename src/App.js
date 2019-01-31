@@ -76,8 +76,7 @@ class App extends Component {
   getPicture() {
     //console.log("getPicture");
     var xhr = new XMLHttpRequest();
-    //gets a landscape, city picture
-    var potentialQuery = ["minimal","wall","background","texture"]
+    var potentialQuery = ["minimal","wall","dark-background", "japan", "china", "floral-background", "cherry-blossom", "calligraphy", "coffee-shop"]
     var querySearch = potentialQuery[Math.floor(Math.random() * potentialQuery.length)];
     var API = `https://api.unsplash.com/photos/random/?query=${querySearch}&orientation=landscape&client_id=e998c0c7516d98d9f0ce345585b13dc874fce7d4f1d29f16afff8a5cb605af9a`;
     xhr.open("GET", API);
